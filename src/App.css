@@ -312,7 +312,7 @@
   position: relative;
 }
 
-.history-chart {
+.bar-chart {
   width: 100%;
   height: auto;
   display: block;
@@ -442,4 +442,28 @@
 .legend-swatch--muted {
   background: var(--gridline);
   border: 1px solid var(--border);
+}
+
+.tour-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.tour-form-notes {
+  grid-column: 1 / -1;
+}
+
+.field select {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 10px;
+  background: var(--page);
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  .tour-form {
+    grid-template-columns: 1fr 1fr;
+  }
 }

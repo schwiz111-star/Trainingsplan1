@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TrainingPlans from './components/TrainingPlans.jsx';
+import Tours from './components/Tours.jsx';
 import Habits from './components/Habits.jsx';
 import DailyChallenge from './components/DailyChallenge.jsx';
 import History from './components/History.jsx';
@@ -7,6 +8,7 @@ import './App.css';
 
 const TABS = [
   { id: 'plans', label: 'Trainingspläne' },
+  { id: 'tours', label: 'Touren' },
   { id: 'habits', label: 'Habits' },
   { id: 'challenge', label: 'Challenge' },
   { id: 'history', label: 'Verlauf' },
@@ -39,6 +41,7 @@ function App() {
 
       <main className="app-main">
         {tab === 'plans' && <TrainingPlans />}
+        {tab === 'tours' && <Tours />}
         {tab === 'habits' && <Habits />}
         {tab === 'challenge' && <DailyChallenge />}
         {tab === 'history' && <History />}
