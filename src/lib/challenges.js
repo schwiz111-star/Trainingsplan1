@@ -19,6 +19,14 @@ export const CHALLENGE_POOL = [
   '3x 1 Minute Plank, mit möglichst wenig Pause dazwischen.',
   'Wecker 30 Minuten früher stellen und die Zeit für Mobility nutzen.',
   'Einen Abend ohne Bildschirm, stattdessen Ausrüstung checken/pflegen.',
+  '500 m am Stück schwimmen, ohne anzuhalten.',
+  'Eine Route nur mit Karte/Kompass planen und ohne Handy-Navigation laufen.',
+  'Alle Mahlzeiten des Tages selbst kochen, keine Fertigprodukte.',
+  '30 Minuten Core-Training: Planks, Beinheben, Rotationen.',
+  'Eine Trainingseinheit komplett ohne Musik oder Podcast absolvieren.',
+  'Auf dem Boden oder im Feldbett schlafen, um dich an einfache Bedingungen zu gewöhnen.',
+  'Direkt nach dem Aufstehen kalt duschen, vor allem anderen.',
+  'Einen 5-km-Lauf nach Einbruch der Dunkelheit absolvieren.',
 ];
 
 function hashString(str) {

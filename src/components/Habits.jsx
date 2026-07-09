@@ -5,8 +5,29 @@ import { todayStr } from '../lib/date.js';
 const HABITS_KEY = 'habits';
 const LOG_KEY = 'habitLog';
 
+const DEFAULT_HABITS = [
+  'Vor 06:00 Uhr aufstehen',
+  'Bett direkt machen',
+  'Kalt duschen (mind. 30 Sek.)',
+  'Mind. 3 Liter Wasser trinken',
+  'Trainingseinheit laut Plan absolviert',
+  '15 Min Mobility/Stretching',
+  'Mind. 7 Stunden Schlaf',
+  'Saubere Ernährung, kein Zucker',
+  'Ausrüstung kontrolliert & bereit',
+  '10 Min mentales Training (Atmung/Visualisierung)',
+];
+
+function seedHabitsIfNeeded() {
+  const stored = loadState(HABITS_KEY, null);
+  if (stored !== null) return stored;
+  const seeded = DEFAULT_HABITS.map((name) => ({ id: uid(), name }));
+  saveState(HABITS_KEY, seeded);
+  return seeded;
+}
+
 export default function Habits() {
-  const [habits, setHabits] = useState(() => loadState(HABITS_KEY, []));
+  const [habits, setHabits] = useState(seedHabitsIfNeeded);
   const [log, setLog] = useState(() => loadState(LOG_KEY, {}));
   const [newHabit, setNewHabit] = useState('');
   const today = todayStr();
