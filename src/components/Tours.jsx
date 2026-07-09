@@ -4,7 +4,7 @@ import { todayStr, isoWeekKey, lastNWeekKeys } from '../lib/date.js';
 import BarChart from './BarChart.jsx';
 
 const STORAGE_KEY = 'tours';
-const TYPES = ['Marsch', 'Lauf', 'Wanderung', 'Rad', 'Sonstiges'];
+const TYPES = ['Marsch', 'Lauf', 'Wanderung', 'Rad', 'Kraft', 'Sonstiges'];
 const WEEKS = 8;
 
 function emptyForm() {
@@ -43,7 +43,7 @@ export default function Tours() {
   }
 
   function addTour() {
-    if (!form.date || !form.distanceKm) return;
+    if (!form.date || !form.durationMin) return;
     const tour = { id: uid(), ...form };
     persist([tour, ...tours]);
     setForm(emptyForm());
@@ -118,7 +118,7 @@ export default function Tours() {
               id="tour-distance"
               value={form.distanceKm}
               onChange={(e) => updateField('distanceKm', e.target.value)}
-              placeholder="12"
+              placeholder="optional bei Kraft"
               inputMode="decimal"
             />
           </div>
@@ -206,7 +206,7 @@ export default function Tours() {
                   <tr key={t.id}>
                     <td>{t.date}</td>
                     <td>{t.type}</td>
-                    <td>{t.distanceKm} km</td>
+                    <td>{t.distanceKm ? `${t.distanceKm} km` : '–'}</td>
                     <td>{t.durationMin} min</td>
                     <td>{formatPace(t.distanceKm, t.durationMin)}</td>
                     <td>{t.elevationM || '–'}</td>

@@ -4,6 +4,7 @@ import Tours from './components/Tours.jsx';
 import Habits from './components/Habits.jsx';
 import DailyChallenge from './components/DailyChallenge.jsx';
 import History from './components/History.jsx';
+import Calories from './components/Calories.jsx';
 import './App.css';
 
 const TABS = [
@@ -12,6 +13,7 @@ const TABS = [
   { id: 'habits', label: 'Habits' },
   { id: 'challenge', label: 'Challenge' },
   { id: 'history', label: 'Verlauf' },
+  { id: 'calories', label: 'Kalorien' },
 ];
 
 function App() {
@@ -45,6 +47,7 @@ function App() {
         {tab === 'habits' && <Habits />}
         {tab === 'challenge' && <DailyChallenge />}
         {tab === 'history' && <History />}
+        {tab === 'calories' && <Calories />}
       </main>
     </div>
   );

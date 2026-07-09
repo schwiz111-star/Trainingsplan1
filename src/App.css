@@ -52,11 +52,14 @@
 }
 
 @media (max-width: 420px) {
+  .tab-nav {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    row-gap: 2px;
+  }
   .tab-button {
-    padding: 8px 6px;
+    padding: 8px 8px;
     font-size: 13px;
-    flex: 1;
-    text-align: center;
   }
 }
 
@@ -466,4 +469,66 @@
   .tour-form {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.kcal-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kcal-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 2px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--gridline);
+}
+
+.kcal-row span:last-child {
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.kcal-target {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 2px solid var(--baseline);
+}
+
+.kcal-target-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.kcal-target-value {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--series-1);
+}
+
+.kcal-tours {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kcal-tour-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 4px 2px;
+}
+
+.kcal-note {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--text-muted);
 }
