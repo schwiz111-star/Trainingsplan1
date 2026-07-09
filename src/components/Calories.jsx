@@ -16,13 +16,22 @@ function defaultProfile() {
   };
 }
 
+const FOOD_LOG_KEY = 'foodLog';
+
 export default function Calories() {
   const [profile, setProfile] = useState(() => ({
     ...defaultProfile(),
     ...loadState(PROFILE_KEY, {}),
   }));
+  const [foodLog, setFoodLog] = useState(() => loadState(FOOD_LOG_KEY, {}));
   const tours = useMemo(() => loadState('tours', []), []);
   const today = todayStr();
+
+  function updateEatenToday(value) {
+    const next = { ...foodLog, [today]: value };
+    setFoodLog(next);
+    saveState(FOOD_LOG_KEY, next);
+  }
 
   function updateField(field, value) {
     const next = { ...profile, [field]: value };
@@ -192,6 +201,48 @@ export default function Calories() {
           </>
         )}
       </section>
+
+      {profileComplete && (
+        <section className="card">
+          <p className="section-title">Kalorien-Ist heute</p>
+          <div className="field" style={{ marginBottom: 14 }}>
+            <label htmlFor="cal-eaten">Bisher gegessen (kcal)</label>
+            <input
+              id="cal-eaten"
+              value={foodLog[today] ?? ''}
+              onChange={(e) => updateEatenToday(e.target.value)}
+              placeholder="1200"
+              inputMode="numeric"
+            />
+          </div>
+          <FoodMeter eatenKcal={Number(foodLog[today]) || 0} targetKcal={targetKcal} />
+        </section>
+      )}
+    </div>
+  );
+}
+
+function FoodMeter({ eatenKcal, targetKcal }) {
+  if (!targetKcal) return null;
+  const ratio = eatenKcal / targetKcal;
+  const fillPercent = Math.min(ratio, 1.2) * 100;
+  const severity = ratio > 1.1 ? 'critical' : ratio > 1 ? 'warning' : 'good';
+  const remaining = targetKcal - eatenKcal;
+
+  return (
+    <div className="food-meter">
+      <div className="food-meter-track">
+        <div
+          className={`food-meter-fill food-meter-fill--${severity}`}
+          style={{ width: `${fillPercent}%` }}
+        />
+      </div>
+      <div className="food-meter-labels">
+        <span>{eatenKcal} kcal gegessen</span>
+        <span>
+          {remaining >= 0 ? `${remaining} kcal übrig` : `${Math.abs(remaining)} kcal über Ziel`}
+        </span>
+      </div>
     </div>
   );
 }

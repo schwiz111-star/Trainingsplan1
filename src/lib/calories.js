@@ -18,6 +18,7 @@ export const MET_BY_TYPE = {
   Wanderung: 6,
   Rad: 7.5,
   Kraft: 5,
+  Schwimmen: 8,
   Sonstiges: 6,
 };
 

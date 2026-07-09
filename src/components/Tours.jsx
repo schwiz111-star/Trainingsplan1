@@ -4,7 +4,7 @@ import { todayStr, isoWeekKey, lastNWeekKeys } from '../lib/date.js';
 import BarChart from './BarChart.jsx';
 
 const STORAGE_KEY = 'tours';
-const TYPES = ['Marsch', 'Lauf', 'Wanderung', 'Rad', 'Kraft', 'Sonstiges'];
+const TYPES = ['Marsch', 'Lauf', 'Wanderung', 'Rad', 'Kraft', 'Schwimmen', 'Sonstiges'];
 const WEEKS = 8;
 
 function emptyForm() {

@@ -23,10 +23,10 @@
 
 .tab-nav {
   display: flex;
-  gap: 4px;
+  flex-wrap: wrap;
+  gap: 4px 2px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 24px;
-  overflow-x: auto;
 }
 
 .tab-button {
@@ -52,11 +52,6 @@
 }
 
 @media (max-width: 420px) {
-  .tab-nav {
-    flex-wrap: wrap;
-    overflow-x: visible;
-    row-gap: 2px;
-  }
   .tab-button {
     padding: 8px 8px;
     font-size: 13px;
@@ -530,5 +525,209 @@
 .kcal-note {
   margin-top: 14px;
   font-size: 12px;
+  color: var(--text-muted);
+}
+
+.field-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: -4px 0 12px;
+}
+
+.standards-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.standard-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.standard-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.standard-name {
+  font-weight: 600;
+  flex: 1;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status-pill--good {
+  background: color-mix(in srgb, var(--good) 16%, transparent);
+  color: var(--good);
+}
+
+.status-pill--open {
+  background: var(--gridline);
+  color: var(--text-secondary);
+}
+
+.status-pill--warning {
+  background: color-mix(in srgb, var(--warning) 22%, transparent);
+  color: color-mix(in srgb, var(--warning) 65%, var(--text-primary));
+}
+
+.status-pill--critical {
+  background: color-mix(in srgb, var(--critical) 16%, transparent);
+  color: var(--critical);
+}
+
+.status-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.status-banner--good {
+  background: color-mix(in srgb, var(--good) 8%, var(--surface-1));
+  border: 1px solid color-mix(in srgb, var(--good) 30%, var(--border));
+}
+
+.status-banner--warning {
+  background: color-mix(in srgb, var(--warning) 14%, var(--surface-1));
+  border: 1px solid color-mix(in srgb, var(--warning) 40%, var(--border));
+}
+
+.food-meter-track {
+  height: 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--series-1) 12%, var(--gridline));
+  overflow: hidden;
+}
+
+.food-meter-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.food-meter-fill--good {
+  background: var(--series-1);
+}
+
+.food-meter-fill--warning {
+  background: var(--warning);
+}
+
+.food-meter-fill--critical {
+  background: var(--critical);
+}
+
+.food-meter-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.plan-phase {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gridline);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.plan-countdown {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.plan-countdown-value {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--series-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.plan-countdown-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.plan-phase-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.plan-phase-info p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.standard-values {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.standard-value-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--text-muted);
+  flex: 1;
+  min-width: 140px;
+}
+
+.standard-value-field input {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  background: var(--page);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.standard-achieved-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.standard-achieved-toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--good);
+}
+
+.standard-notes {
+  margin: 8px 0 0;
+  font-size: 13px;
   color: var(--text-muted);
 }
